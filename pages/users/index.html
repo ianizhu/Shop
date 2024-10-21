@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+      integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
+      crossorigin="anonymous"
+    /> -->
+    <link rel="stylesheet" href="../../vendors/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../css/style.css" />
+    <title>Личный кабинет</title>
+    <style>
+
+      body {
+        background: #CA7C4E;
+        background: linear-gradient(to top right, #EEBE6C 0%, #CA7C4E 100%); ;
+      } 
+      .wrapper {
+        min-height: 100vh;
+        margin: auto;
+        max-width: 1920px;
+        padding-left: 50px;
+        padding-right: 50px;
+      }
+      .nav-pills .nav-link.active,
+      .nav-pills .show > .nav-link {
+        background: #F5E8DF;
+        color: #000;
+      }
+      .nav-pills .nav-link {
+        color: #000;
+        font-weight: 500;
+      }
+      .profile-message {
+        font-size: 1.8rem;
+        color: #cd130d;
+      }
+      .person__acc {
+        background: #F5E8DF;
+      }
+
+      .main__part {
+        background: #F5E8DF;
+        border-radius: 10px;
+      }
+
+      h4 {
+        font-weight: 600;
+      }
+
+      .info {
+        font-weight: 500;
+        font-size: 1.3rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="container-fluid my-5">
+        <h1 class="py-5 text-center">Личный кабинет пользователя</h1>
+        <div class="row">
+          <div class="col-3">
+            <div
+              class="nav flex-column nav-pills"
+              id="v-pills-tab"
+              role="tablist"
+              aria-orientation="vertical"
+            >
+              <a
+                class="nav-link"
+                id="profileTab"
+                data-toggle="pill"
+                href="#v-pills-profile"
+                role="tab"
+                aria-controls="v-pills-profile"
+                aria-selected="false"
+                >Профиль</a
+              >
+              <a
+                class="nav-link"
+                id="messagesTab"
+                data-toggle="pill"
+                href="#v-pills-messages"
+                role="tab"
+                aria-controls="v-pills-messages"
+                aria-selected="false"
+                >Сообщения</a
+              >
+              <a
+                class="nav-link"
+                id="settingsTab"
+                data-toggle="pill"
+                href="#v-pills-settings"
+                role="tab"
+                aria-controls="v-pills-settings"
+                aria-selected="false"
+                >Настройки</a
+              >
+            </div>
+          </div>
+          <div class="col-9 main__part">
+            <div class="tab-content" id="v-pills-tabContent">
+              <div
+                class="tab-pane fade"
+                id="v-pills-profile"
+                role="tabpanel"
+                aria-labelledby="v-pills-profile-tab"
+              >
+                <div class="row py-5">
+                  <div class="col-md-4">
+                    <img class="img-fluid" src="../../img/login.jpg" alt="avatar" />
+                  </div>
+                  <div class="col-md-8 person__acc main__part">
+                    <h4>Имя:</h4> <span class="info"><?php echo $_SESSION["name"]; ?></span>
+                    <h4>Фамилия:</h4> <span class="info"><?php echo $_SESSION["lastname"]; ?></span>
+                    <h4>Id: </h4><span class="info"><?php echo $_SESSION["id"]; ?></span>
+                    <h4>Email: </h4><span class="info"><?php echo $_SESSION["email"]; ?></span>
+                    <h4>История о себе:</h4> <span class="info">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</span>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="tab-pane fade"
+                id="v-pills-messages"
+                role="tabpanel"
+                aria-labelledby="v-pills-messages-tab"
+              >
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="row mb-2">
+                      <div class="media">
+                        <img class="img-fluid mr-3" src="../../img/r1.jpg" alt="" />
+                        <div class="media-body">
+                          <h6>Ксюша</h6>
+                          <p>В кафе завтра в 6 или в 7?</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row mb-2">
+                      <div class="media">
+                        <img class="img-fluid mr-3" src="../../img/r2.jpg" alt="" />
+                        <div class="media-body">
+                          <h6>Иван IT</h6>
+                          <p>Всё пропало, ты еще на работе?</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row mb-2">
+                      <div class="media">
+                        <img class="img-fluid mr-3" src="../../img/r3.jpg" alt="" />
+                        <div class="media-body">
+                          <h6>Мария Ивановна</h6>
+                          <p>А я уже на рыбалке....</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row mb-2">
+                      <div class="media">
+                        <img class="img-fluid mr-3" src="../../img/r5.jpg" alt="" />
+                        <div class="media-body">
+                          <h6>Татьяна бух</h6>
+                          <p>Зарплата же была 2 дня назад</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row mb-2">
+                      <div class="media">
+                        <img class="img-fluid mr-3" src="../../img/r7.jpg" alt="" />
+                        <div class="media-body">
+                          <h6>Валерий</h6>
+                          <p>Жду тебя дома</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <div class="row border py-4 mb-4">
+                      <div class="col-4">
+                        <img class="img-fluid" src="../../img/login.jpg" alt="" width="65px" />
+                      </div>
+                      <div class="col-8 mb-2">
+                        <h6>Я</h6>
+                        <p>Про кафе помнишь?</p>
+                      </div>
+                      <div class="col-4">
+                        <img class="img-fluid" src="../../img/r1.jpg" alt="" />
+                      </div>
+                      <div class="col-8">
+                        <h6>Ксюша</h6>
+                        <p>В кафе завтра в 6 или в 7?</p>
+                      </div>
+                    </div>
+                    <div class="row mb-4">
+                      <form class="col-12 pl-0 pr-0" action=""></form>
+                      <textarea
+                        class="form-control"
+                        rows="3"
+                        placeholder="Текст сообщения"
+                      ></textarea>
+                      <button class="btn btn-block btn-danger mt-3">Отправить</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="row mt-4">
+                  <div class="col-12">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">First</th>
+                          <th scope="col">Last</th>
+                          <th scope="col">Handle</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td>Mark</td>
+                          <td>Otto</td>
+                          <td>@mdo</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">2</th>
+                          <td>Jacob</td>
+                          <td>Thornton</td>
+                          <td>@fat</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">3</th>
+                          <td>Larry</td>
+                          <td>the Bird</td>
+                          <td>@twitter</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="tab-pane fade"
+                id="v-pills-settings"
+                role="tabpanel"
+                aria-labelledby="v-pills-settings-tab"
+              >
+                <div class="d-flex flex-wrap mt-5 py-5">
+                  <button class="btn mb-3 btn-block btn-info">Загрузить</button>
+                  <button class="btn mb-3 btn-block btn-info">Изменить</button>
+                  <button class="btn mb-3 btn-block btn-info">Отключить</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      let pathname = location.pathname.split("/")[2];
+
+      addEventListener("popstate", () => {
+        let pathPopState = location.pathname.split("/")[2];
+
+        if (pathPopState == "profile") {
+          $("#profileTab").tab("show");
+        } else if (pathPopState == "messages") {
+          $("#messagesTab").tab("show");
+        } else if (pathPopState == "settings") {
+          $("#settingsTab").tab("show");
+        }
+      });
+
+      if (pathname == "profile") {
+        $("#v-pills-profile").tab("show");
+      } else if (pathname == "messages") {
+        $("#v-pills-messages").tab("show");
+      } else if (pathname == "settings") {
+        $("#v-pills-settings").tab("show");
+      } else {
+        location.href = location.protocol + "//" + location.hostname;
+      }
+
+      document.getElementById(pathname + "Tab").classList.add("active");
+
+      let navLinks = document.querySelectorAll(".nav-link");
+
+      for (let i = 0; i < navLinks.length; i++) {
+        navLinks[i].addEventListener("click", () => {
+          let page = navLinks[i]
+            .getAttribute("aria-controls")
+            .split("v-pills-")[1];
+          history.pushState("", "", page);
+          console.log(page);
+        });
+      }
+    </script>
+  </body>
+</html>
