@@ -26,7 +26,7 @@
 						<div class="hover">
 							<h4>Впервые на нашем сайте?</h4>
 							<p>Tогда скорее регистрируйтесь, чтобы получать специальные скидки и предложения!</p>
-							<a class="button button-account" href="register.html">Создать аккаунт</a>
+							<a class="button button-account" href="/register">Создать аккаунт</a>
 						</div>
 					</div>
 				</div>
@@ -36,11 +36,11 @@
 						<form class="row login_form" onsubmit="authForm(this); return false;">
 							<div class="col-md-12 form-group">
 								<input type="email" class="form-control" name="email" placeholder="Введите email"
-									onfocus="this.placeholder = ''" onblur="this.placeholder = 'Введите email'">
+									onfocus="this.placeholder = ''" onblur="this.placeholder = 'Введите email'"required autocomplete="email">
 							</div>
 							<div class="col-md-12 form-group">
 								<input type="password" class="form-control"  name="password" placeholder="Введите пароль"
-									onfocus="this.placeholder = ''" onblur="this.placeholder = 'Введите пароль'">
+									onfocus="this.placeholder = ''" onblur="this.placeholder = 'Введите пароль'" autocomplete="current-password" required>
 							</div>
 							<div class="col-md-12 form-group">
 								<div class="creat_account">
@@ -63,7 +63,7 @@
 
 	<!-- Модальное окно -->
 
-<div class="modal fade mt-5" id="registerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade mt-5" id="authModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
 	  <div class="modal-content">
 		<div class="modal-header">
@@ -88,12 +88,14 @@
 			});
 			let callback = await response.json();
 			if (callback.result == "authorized") {
-				$('#registerModal').modal('show');
+				$('#authModal').modal('show');
 				setTimeout(() => {
-					location.pathname = "/users/profile";
+					location.href = "/users/profile";
 				}, 3000);
 			} else if (callback.result == "not_found") {
 				info.innerText = "Неверный email или пароль";
+			} else {
+				alert("Неизвестная ошибка");
 			}
 		}
 	</script>
