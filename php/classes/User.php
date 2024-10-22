@@ -76,7 +76,7 @@ class User {
     //статический метод получения данных пользователя
     static function getUser($userId) {
         global $mysqli;
-        $result = $mysqli->query("SELECT `id`, `name`, `lastname`, `email` * FROM `users` WHERE `id` = '$userId'");
+        $result = $mysqli->query("SELECT `id`, `name`, `lastname`, `email` FROM `users` WHERE `id` = '$userId'");
         $result = $result->fetch_assoc();
         return json_encode($result);
     }
