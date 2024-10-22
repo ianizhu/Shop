@@ -114,10 +114,10 @@
                     <img class="img-fluid" src="../../img/login.jpg" alt="avatar" />
                   </div>
                   <div class="col-md-8 person__acc main__part">
-                    <h4>Имя:</h4> <span class="info"><?php echo $_SESSION["name"]; ?></span>
-                    <h4>Фамилия:</h4> <span class="info"><?php echo $_SESSION["lastname"]; ?></span>
-                    <h4>Id: </h4><span class="info"><?php echo $_SESSION["id"]; ?></span>
-                    <h4>Email: </h4><span class="info"><?php echo $_SESSION["email"]; ?></span>
+                    <h4>Имя:</h4> <span class="info"></span>
+                    <h4>Фамилия:</h4> <span class="info"></span>
+                    <h4>Id: </h4><span class="info"></span>
+                    <h4>Email: </h4><span class="info"></span>
                     <h4>История о себе:</h4> <span class="info">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</span>
                   </div>
                 </div>
@@ -282,7 +282,18 @@
         }
       });
 
+      let user;
+      async function getUser() {
+        let response = await fetch("/getUser");
+        return await response.json();
+      }
+
       if (pathname == "profile") {
+        user = getUser();
+        user .then(
+          result => { 
+            console.log(result)
+          })
         $("#v-pills-profile").tab("show");
       } else if (pathname == "messages") {
         $("#v-pills-messages").tab("show");
