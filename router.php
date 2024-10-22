@@ -20,7 +20,10 @@ if($url[1] == "blog") {
     echo User::addUser($_POST["name"], $POST["lastname"], $_POST["email"], $_POST["password"]);
 } else if($url[1] == "authUser") {
     echo User::authUser($_POST["email"], $POST["password"]);
-} else{
+} else if($url[1] == "getUser") {
+    echo User::getUser($_SESSION["id"]);
+}
+else{
     $content = file_get_contents("pages/index.php");
 }
 if (!empty($content))require_once("template.php");
