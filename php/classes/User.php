@@ -64,13 +64,21 @@ class User {
 
         if (password_verify($password, $result["password"])) {
             $_SESSION["id"] = $result["id"];
-            $_SESSION["name"] = $result["name"];
-            $_SESSION["lastname"] = $result["lastname"];
-            $_SESSION["email"] = $result["email"];
+            // $_SESSION["name"] = $result["name"];
+            // $_SESSION["lastname"] = $result["lastname"];
+            // $_SESSION["email"] = $result["email"];
             return json_encode(["result" =>"authorized"]);
         } else {
             return json_encode(["result" => "not_found"]);
         }
+    }
+
+    //статический метод получения данных пользователя
+    static function getUser($userId) {
+        global $mysqli;
+        $result = $mysqli->query("SELECT `id`, `name`, `lastname`, `email` * FROM `users` WHERE `id` = '$userId'");
+        $result = $result->fetch_assoc();
+        return json_encode($result);
     }
 }
 
